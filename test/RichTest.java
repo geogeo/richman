@@ -75,7 +75,16 @@ public class RichTest {
     }
 
     //命令：Roll。掷骰子行走1~6步。步数由随即 算法产生。如果途中碰到路障，停留在路障处。 玩家显示的符号覆盖当前位置的地产符号。
-    public void roll_when_block_in_the_way(){
-
+           @Test
+    public void roll_in_random(){
+        p1.roll(); //?how to test random number generator......
     }
+
+    public void roll_when_block_in_the_way(){
+        p1.setBlockTo(2);
+        p1.move(3);
+        assertEquals(2,p1.position());
+    }
+
+
 }

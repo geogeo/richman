@@ -2,6 +2,8 @@ public class Field {
     private Player owner = null;
     private int price =100;
     private int level=0;
+    private Tools tools=null;
+    private boolean occupied=false;
     public Player owner(){
         return owner;
     };
@@ -33,5 +35,18 @@ public class Field {
 
     public void levelup() {
         price *= 2;
+    }
+
+    public void append(Block block) {
+        if(tools!=null)
+            tools=block;
+    }
+
+    public Tools tool() {
+        return tools;
+    }
+
+    public boolean hasBlock() {
+          return tools instanceof Block;
     }
 }

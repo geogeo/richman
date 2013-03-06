@@ -15,8 +15,13 @@ public class Player {
         this.property = property;
     }
 
-    public void move(int i) {
-        position=(position+i)%Rich.length;
+    public void move(int target) {
+        for(int i=1;i<=target;i++){
+            position=(position+1)%Rich.length;
+            if(Rich.MAP[position].hasBlock()){
+                return;
+            }
+        }
     }
 
     public String promo() {
@@ -58,5 +63,17 @@ public class Player {
     }
     public void enable(){
         availability = true;
+    }
+
+    public int position() {
+        return position;
+    }
+
+    public void setBlockTo(int position) {
+        Rich.MAP[position].append(new Block());
+    }
+
+    public void roll() {
+        move((int)(Math.random()*6));
     }
 }
